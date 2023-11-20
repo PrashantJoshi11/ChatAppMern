@@ -3,10 +3,13 @@ import {
   ChatCircleDots,
   Gear,
   GearSix,
+  MagnifyingGlass,
   Phone,
+  PhoneCall,
   SignOut,
   User,
   Users,
+  VideoCamera,
 } from "phosphor-react";
 
 const Profile_Menu = [
@@ -36,6 +39,20 @@ const Nav_Buttons = [
   {
     index: 2,
     icon: <Phone />,
+  },
+];
+export const ChatBar_Button = [
+  {
+    index: 0,
+    icon: <VideoCamera />
+  },
+  {
+    index: 1,
+    icon: <Phone />,
+  },
+  {
+    index: 2,
+    icon: <MagnifyingGlass />
   },
 ];
 
@@ -132,7 +149,7 @@ const ChatList = [
 const Chat_History = [
   {
     type: "msg",
-    message: "Hi 👋🏻, How are ya ?",
+    message: "Hi 👋🏻, How are u ?",
     incoming: true,
     outgoing: false,
   },

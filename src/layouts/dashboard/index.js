@@ -1,12 +1,18 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import { Stack } from "@mui/material";
+import SideBar from "./SideBar";
+
+
 
 const DashboardLayout = () => {
 
   return (
     <>
-      Dashboard Layout
+    <Stack direction="row">
+     <SideBar />
       <Outlet />
+      </Stack>
     </>
   );
 };
