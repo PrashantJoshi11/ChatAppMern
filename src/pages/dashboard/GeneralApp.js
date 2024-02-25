@@ -4,10 +4,14 @@ import { Box, Stack } from "@mui/material";
 import Conversation from "../../components/Conversation";
 import Contact from "../../components/Contact";
 import { useSelector } from "react-redux";
+import SharedMedia from "../../components/settings/drawer/SharedMedia";
+import StarredMsg from "../../components/settings/drawer/StarredMsg";
 
 const GeneralApp = () => {
-const {open}=useSelector((state)=>state.side.sideBar);
-console.log("🚀 ~ file: GeneralApp.js:10 ~ GeneralApp ~ data:", open)
+const {open,type}=useSelector((state)=>state.side.sideBar);
+
+const data=useSelector((state)=>state.side);
+
 
   return (
     <>
@@ -18,7 +22,23 @@ console.log("🚀 ~ file: GeneralApp.js:10 ~ GeneralApp ~ data:", open)
             <Conversation />
        </Box>
        {
-        open? <Contact /> : null
+        open && (()=>{
+          switch(type){
+
+            case "CONTACT":
+              return <Contact />;
+      
+                case "SHARED":
+                return <SharedMedia />;
+              
+                  case "STARED":
+                    return <StarredMsg />;
+                  break;
+                  default:
+                    break;
+              
+          }
+        })()
        }
       
     </Stack>

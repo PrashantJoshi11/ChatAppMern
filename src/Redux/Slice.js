@@ -1,13 +1,14 @@
 
 import { useDispatch } from "react-redux";
+import { dispatch } from "./Store";
 const { createSlice } = require("@reduxjs/toolkit")
 
 
 
-const initialState={
+let initialState={
     sideBar:{
         open:false,
-        type:"Contact"
+        type:"CONTACT"
     }
 }
 const appslice=createSlice(
@@ -17,9 +18,12 @@ const appslice=createSlice(
         reducers:{
             toogleSideBar(state,action){
                 state.sideBar.open=!state.sideBar.open
+                console.log("🚀 ~ file: Slice.js:20 ~ toogleSideBar ~ state.sideBar.open:", state.sideBar.open)
             },
             updateSideBar(state,action){
-                state.sideBar.type=action.payload.type
+                console.log('action.payload', action.payload)
+                state.sideBar.type = action.payload
+              
             }
         }
     }
@@ -27,16 +31,15 @@ const appslice=createSlice(
 export default appslice.reducer;
 export const {toogleSideBar,updateSideBar}=appslice.actions;
 
-export function ToogleSideBar () {
-    const dispatch =useDispatch();
+export function ToogleSideBar() {
+  
     return async () => {
-        
         dispatch(appslice.actions.toogleSideBar())
     }
 }
-export function UpateSideBar(type){
-    const dispatch =useDispatch();
+export const UpdateSideBarfun =(type) =>{
+
     return async()=>{
-        dispatch(appslice.actions.updateSideBar(type))
+        dispatch(updateSideBar(type))
     }
 }

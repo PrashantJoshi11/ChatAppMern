@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 import { persistStore, persistReducer } from 'redux-persist';
 import { combineReducers } from '@reduxjs/toolkit';
 import SideBarReducer from './Slice'
+import { useDispatch } from 'react-redux';
 
 
 
@@ -19,9 +20,9 @@ const persistConfig = {
 
   const persist = persistReducer(persistConfig,reducerData);
 
-
-
-const store = configureStore({
+  const store = configureStore({
     reducer: persist,
-})
+  });
+
+export const { dispatch } =store ;
 export default store;

@@ -10,7 +10,7 @@ function Conversation() {
   return (
     <Stack height={"100%"} maxHeight={"100vh"} width={"auto"}>
         {/* header */}
-      <Header />
+        <Header />
     </Stack>
   )
 }

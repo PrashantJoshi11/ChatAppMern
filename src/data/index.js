@@ -1,9 +1,17 @@
 import { faker } from "@faker-js/faker";
 import {
+  Bell,
   ChatCircleDots,
   Gear,
   GearSix,
+  Image,
+  Info,
+  Key,
+  Keyboard,
+  Lock,
   MagnifyingGlass,
+  Note,
+  PencilCircle,
   Phone,
   PhoneCall,
   SignOut,
@@ -63,17 +71,37 @@ const Nav_Setting = [
   },
 ];
 
-const ChatList = [
+export const callHistory=[
   {
     id: 0,
     img: faker.image.avatar(),
     name: faker.name.firstName(),
-    msg: faker.music.songName(),
-    time: "9:36",
-    unread: 0,
-    pinned: true,
-    online: true,
+    msg: "yesterday at 12am",
+    online: false,
+    incoming: false,
+    outgoing: true,
   },
+  {
+    id: 1,
+    img: faker.image.avatar(),
+    name: faker.name.firstName(),
+    msg: "yesterday at 5am",
+    online: true,
+    incoming: true,
+    outgoing: false,
+  },
+  {
+    id: 2,
+    img: faker.image.avatar(),
+    name: faker.name.firstName(),
+    msg: "yesterday at 1pm",
+    online: true,
+    incoming: false,
+    outgoing: true,
+  },
+]
+
+const ChatList = [
   {
     id: 1,
     img: faker.image.avatar(),
@@ -236,6 +264,70 @@ const Message_options = [
     title: "Delete Message",
   },
 ];
+ export const sharedLink=[
+
+  {
+    type: "msg",
+    subtype: "link",
+    preview: faker.image.cats(),
+    message: "Yep, I can also do that",
+    incoming: true,
+    outgoing: false,
+  },
+ ]
+ export const sharedDoc=[
+  {
+    type: "msg",
+    subtype: "doc",
+    message: "Yes sure, here you go.",
+    incoming: true,
+    outgoing: false,
+  },
+
+ ]
+
+export const SettingList=[
+  {
+    key:0,
+    icon:<Bell size={24}/>,
+    title:"Notifications",
+    onclick:()=>{}
+  },
+  {
+    key:2,
+    icon:<Lock size={24}/>,
+    title:"Privacy",
+    onclick:()=>{}
+  },
+  {
+    key:3,
+    icon:<Key size={24}/>,
+    title:"Security",
+    onclick:()=>{}
+  },
+
+  {
+    key:4,
+    icon:<Image size={24}/>,
+    title:"Chat Wallpaper",
+    onclick:()=>{}
+  },
+  {
+    key:5,
+    icon:<Note size={24}/>,
+    title:"Request Account Info",
+    onclick:()=>{}
+  },
+
+  {
+    key:6,
+    icon:<Info size={24}/>,
+    title:"Help",
+    onclick:()=>{}
+  },
+
+ ]
+
 
 export {
   Profile_Menu,
@@ -244,4 +336,5 @@ export {
   ChatList,
   Chat_History,
   Message_options,
+ 
 };

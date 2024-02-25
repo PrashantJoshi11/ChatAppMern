@@ -12,6 +12,7 @@ import Menu from '@mui/material/Menu';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import { Message_options } from '../../data';
+import { useNavigate } from 'react-router-dom';
 
 function TimeLine({val}) {
     const theme=useTheme();
@@ -143,7 +144,7 @@ function MenuOption(){
 function ProfileOption(){
     const [open, setOpen] = React.useState(false);
     const anchorRef = React.useRef(null);
-  
+  const Navigate=useNavigate();
     const handleToggle = () => {
       setOpen((prevOpen) => !prevOpen);
     };
@@ -214,9 +215,9 @@ function ProfileOption(){
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={handleClose}>My account</MenuItem>
-                    <MenuItem onClick={handleClose}>Logout</MenuItem>
+                    <MenuItem onClick={()=>{Navigate("/profile");handleClose()}}>Profile</MenuItem>
+                    <MenuItem onClick={()=>{Navigate("/setting");handleClose()}}>My account</MenuItem>
+                    <MenuItem onClick={()=>{Navigate("/auth/login");handleClose()}}>Logout</MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>

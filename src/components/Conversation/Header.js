@@ -103,7 +103,7 @@ function Header() {
         <Stack direction={"row"} alignItems={"center"}> 
         <Box p={3}>
         <Stack onClick={()=>{
-           dispatch(toogleSideBar())}} direction="row"  alignItems="center" spacing={1}  >
+           dispatch(toogleSideBar()) }} direction="row"  alignItems="center" spacing={1}  >
             
                         <StyledBadge
                         overlap="circular"
